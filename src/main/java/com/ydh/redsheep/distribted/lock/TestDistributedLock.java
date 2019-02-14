@@ -6,10 +6,10 @@ public class TestDistributedLock {
 
     public static void main(String[] args) {
 
-        final ZkClientExt zkClientExt1 = new ZkClientExt("192.168.2.144:2181", 5000, 5000, new BytesPushThroughSerializer());
+        final ZkClientExt zkClientExt1 = new ZkClientExt("172.16.165.131:2181", 5000, 5000, new BytesPushThroughSerializer());
         final SimpleDistributedLockMutex mutex1 = new SimpleDistributedLockMutex(zkClientExt1, "/Mutex");
 
-        final ZkClientExt zkClientExt2 = new ZkClientExt("192.168.2.144:2181", 5000, 5000, new BytesPushThroughSerializer());
+        final ZkClientExt zkClientExt2 = new ZkClientExt("172.16.165.131:2181", 5000, 5000, new BytesPushThroughSerializer());
         final SimpleDistributedLockMutex mutex2 = new SimpleDistributedLockMutex(zkClientExt2, "/Mutex");
 
         try {
