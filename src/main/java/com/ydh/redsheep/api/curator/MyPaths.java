@@ -10,7 +10,7 @@ import org.apache.zookeeper.ZooKeeper;
 import java.util.List;
 
 /**
-*
+* 提供了一些简单的API来构造ZNode路径、提供创建和删除节点
 * @author : yangdehong
 * @date : 2020-03-15 17:37
 */
