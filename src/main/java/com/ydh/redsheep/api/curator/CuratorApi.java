@@ -16,7 +16,7 @@ import org.apache.zookeeper.CreateMode;
  */
 public class CuratorApi {
 
-    private static final String connectString = "172.16.165.222:2181";
+    private static final String connectString = "172.16.131.6:2181";
     private static int timeout = 30*1000;
 
     private static CuratorFramework curatorFramework;
@@ -38,17 +38,20 @@ public class CuratorApi {
 
         curatorFramework.start();
 
-//        createNode();
+        createNode();
 //        deleteNode();
 //        getNode();
 //        setData();
 //        sync();
-        listener();
+//        listener();
 
         Thread.sleep(60*1000);
     }
 
     private static void listener() throws Exception{
+        // NodeCache：对一个节点进行监听，监听事件包括指定的路径节点的增、删、改的操作
+        // PathChildrenCache：对指定的路径节点的一级子目录进行监听，不对该节点的操作进行监听，对其子目录的节点进行增、删、改的操作监听
+        // TreeCache：可以将指定的路径节点作为根节点（祖先节点），对其所有的子节点操作进行监听，呈现树形目录的监听，可以设置监听深度，最大监听深度为2147483647（int类型的最大值）
         final NodeCache nodeCache = new NodeCache(curatorFramework, "/curator_1");
         nodeCache.start(true);
         // 其他的listener类似的
