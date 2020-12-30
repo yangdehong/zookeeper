@@ -15,16 +15,17 @@ public class NodeApi {
 
     private static ZooKeeper zooKeeper;
 
-    private static String connectString = "172.16.165.222:2181";
+    private static String connectString = "172.16.131.6:2181";
     private static int timeout = 30*1000;
 
     public static void main(String[] args) throws Exception {
+        // new MyWatcher() 中事件听见
         zooKeeper = new ZooKeeper(connectString, timeout, new MyWatcher(), false);
 
         System.out.println(zooKeeper.getState());
 
-//        createNode();
-        createNodeASync();
+        createNode();
+//        createNodeASync();
 //        getChildrenNodes();
 //        getChildrenNodesASync();
 //        getNodeData();
